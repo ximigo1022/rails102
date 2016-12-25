@@ -6,4 +6,8 @@ class Post < ApplicationRecord
 
   scope :recent, -> { order("created_at DESC")}
 
+  has_many :group_relationships
+  has_many :members, through: :group_relationships, source: :user
+
+
 end
